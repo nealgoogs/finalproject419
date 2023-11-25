@@ -1,0 +1,18 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey on Password Meters</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Thanks for participating in our survey about password meters!</h1>
+        <p>Click the button below to begin.</p>
+        <form action="{% url 'redirect_randomly' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Start Survey</button>
+        </form>
+    </div>
+</body>
+</html>

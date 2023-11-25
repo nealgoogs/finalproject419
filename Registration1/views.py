@@ -10,7 +10,7 @@ def register(request):
             password_strength_result = zxcvbn(form.cleaned_data['password'])  # Correct usage
             user.password_strength = password_strength_result['score']
             user.save()
-            return redirect('registration1_thankyou')
+            return redirect('Registration1:registration1_thankyou')
     else:
         form = UserRegistrationForm1()
     return render(request, 'register.html', {'form': form})
