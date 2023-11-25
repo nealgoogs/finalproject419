@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm1
-from zxcvbn import zxcvbn  # Correct import statement
+from zxcvbn import zxcvbn
 
 def register(request):
     if request.method == 'POST':
