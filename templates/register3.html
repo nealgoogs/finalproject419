@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/gamified.css' %}"> <!-- Update CSS path -->
+    <script src="https://cdn.jsdelivr.net/npm/zxcvbn@4.4.2/dist/zxcvbn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mt-5">
+            <form method="post" class="bg-white p-4 border rounded">
+                {% csrf_token %}
+                <h2 class="text-center mb-4">Registration</h2>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required minlength="8" maxlength="16" oninput="updatePasswordStrength()">
+                    <div id="password-strength-meter" class="password-meter">
+                        <img id="runner-icon" src="{% static 'images/run.png' %}" class="runner-icon" alt="Runner" width="32px" height="32px">
+                        <div class="strength-section"></div>
+                        <div class="strength-section"></div>
+                        <div class="strength-section"></div>
+                        <div class="strength-section"></div>
+                        <div class="strength-section"></div>
+                    </div>
+
+                    <div id="finish-line" class="finish-line">
+    <img src="{% static 'images/finish-line.png' %}" alt="Finish Line" width="32px" height="32px">
+</div>
+                    <div id="password-tips" class="password-tips font-weight-bold mt-2 text-dark"></div>
+
+                    <div id="password-strength-feedback"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/gamified_password_meter.js' %}"></script>
+</body>
+</html>
