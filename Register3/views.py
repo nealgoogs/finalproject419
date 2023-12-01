@@ -17,7 +17,7 @@ def register(request):
             return redirect('Register3:registration3_survey')
     else:
         form = UserRegistrationForm3()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'register3.html', {'form': form})
 
 
 
